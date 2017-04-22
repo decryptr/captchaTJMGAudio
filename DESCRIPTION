@@ -1,0 +1,23 @@
+Package: captchaTJMGAudio
+Title: Quebra o captcha do TJMG usando o audio
+Version: 0.0.1.9000
+Authors@R: person("Julio", "Trecenti", email = "j@jtrecenti.com", role = c("aut", "cre"))
+Description: O captcha de áudio do TJMG não tem ruído, logo é muito simples quebrá-lo, criando apenas uma tabela de sumarizações das frequências de cada letra. Estamos usando como métrica de sumarização a soma das frequências.
+Depends: R (>= 3.3.3)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: tuneR,
+    dplyr,
+    tidyr,
+    ggplot2,
+    httr,
+    magick,
+    tibble,
+    purrr,
+    glue,
+    magrittr,
+    stringr,
+    lubridate,
+    microbenchmark
+RoxygenNote: 6.0.1
