@@ -1,0 +1,66 @@
+```{r}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+[![Travis-CI Build Status](https://travis-ci.org/decryptr/captchaTJMGAudio.svg?branch=master)](https://travis-ci.org/decryptr/captchaTJMGAudio)
+
+# captchaTJMGAudio
+
+Quebra captcha do TJMG por áudio.
+
+## Instalação
+
+```{r eval = FALSE}
+# install.packages('devtools')
+devtools::install_github('decryptr/captchaTJMGAudio')
+library(captchaTJMGAudio)
+```
+
+## Download
+
+```{r}
+path <- 'exemplo'
+```
+
+```{r eval = FALSE}
+captchaTJMGAudio::baixar_img_audio(path)
+```
+
+```{r}
+arqs <- dir(path, full.names = TRUE)
+arqs
+```
+
+## Visualização
+
+Visualização da imagem do captcha.
+
+```{r}
+captchaTJMGAudio::desenhar_img(arqs[1])
+```
+
+Visualização do áudio picotado (cada cor é uma letra identificada)
+
+```{r}
+onda <- captchaTJMGAudio::ler_audio(arqs[2])
+captchaTJMGAudio::desenhar_corte(onda)
+```
+
+## Predição
+
+```{r}
+captchaTJMGAudio::predizer(arqs[2])
+```
+
+## Performance
+
+```{r}
+microbenchmark::microbenchmark(captcha = captchaTJMGAudio::predizer(arqs[2]))
+```
+
+```{r eval=FALSE, echo=FALSE}
+rmarkdown::render('README.Rmd', 
+                  output_format = rmarkdown::md_document(),
+                  quiet = TRUE)
+```
+
