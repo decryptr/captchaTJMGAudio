@@ -10,8 +10,7 @@
 #'
 #' @export
 quebrar_letras <- function(onda) {
-  d_clean <- tibble::tibble(arq_aud = arq_aud,
-                            som = onda,
+  d_clean <- tibble::tibble(som = onda,
                             tempo = 1:length(onda)) %>%
     dplyr::mutate(som = ifelse(abs(som) < 2000, 0, som),
                   abs_som = abs(som),
